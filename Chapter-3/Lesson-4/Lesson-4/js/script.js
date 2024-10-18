@@ -84,3 +84,27 @@ const generateParentheses = (n) => {
 };
 
 console.log(generateParentheses(3)); //
+
+
+function intersectionWithDuplicates(arr1, arr2) {
+  let result = [];
+
+  let arr2Copy = [...arr2];
+
+  // Iterate through the first array
+  for (let i = 0; i < arr1.length; i++) {
+    let index = arr2Copy.indexOf(arr1[i]);
+
+    if (index !== -1) {
+      result.push(arr1[i]);
+      arr2Copy.splice(index, 1);
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+let arr1 = [1, 2, 2, 3, 4];
+let arr2 = [2, 2, 3, 5];
+console.log(intersectionWithDuplicates(arr1, arr2)); //
